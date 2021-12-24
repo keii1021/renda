@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+    </script>
+</head>
+<body>
+	<div id="main" class="main">
+    <h1 id="countDown" class="countDown">--</h1>
+    <button id="rankButton" class="rankButton" onclick="toRanking()">ランキングを見る</button>
+    <div id="content" class="content">
+      <div class="title">
+        連打アプリ
+      </div>
+      <div class="score" id="score"></div>
+      <div class="target">
+        <img src="img/target.png" onClick="tapCount()">
+      </div>
+      <div id="startButton" >
+        <button class="startButton" onclick="startGame()">ゲームスタート</button>
+      </div>
+    </div>
+  </div>
+
+<!-- ランキング画面 -->
+  <div id="ranking">
+    <button onclick="toMain()">戻る</button>
+    <div class="title">
+      ランキング
+    </div>
+    <table id="rankingTable" border="1">
+      <tr>
+        <td class="rank">１位</td>
+        <td class="name" id= "name_1">no data</td>
+        <td id= "score_1">-</td>
+      </tr>
+      <tr>
+        <td class="rank">２位</td>
+        <td class="name" id = "name_2">no data</td>
+        <td id = "name_2">-</td>
+      </tr>
+      <tr>
+        <td class="rank">３位</td>
+        <td class="name" id = "name_3">no data</td>
+        <td id = "name_3">-</td>
+      </tr>
+      <tr>
+        <td class="rank">４位</td>
+        <td class="name" id = "name_4">no data</td>
+        <td id = "name_4">-</td>
+      </tr>
+      <tr>
+        <td class="rank">５位</td>
+        <td class="name" id = "name_5">no data</td>
+        <td id = "name_5">-</td>
+      </tr>
+    </table>
+  </center>
+</div>
+</div>
+<script src="js/ncmb.min.js"></script>
+<script src="js/init.js"></script>
+<script src="js/tapGame.js"></script>
+<script src="js/ranking.js"></script>
+    <script>
+    // APIキーの設定とSDK初期化
+    var ncmb = new NCMB("7010d031975ed8b90dc9199fe3babdd43ec21524aa111c148f838e48e8f129dd","de294a1563cb66460a14ee0d7d708369c29610f038e13978046cff25933d9f24");
+
+    // 保存先クラスの作成
+    var TestClass = ncmb.DataStore("TestClass");
+
+    // 保存先クラスのインスタンスを生成
+    var testClass = new TestClass();
+
+    // 値を設定と保存
+    testClass.set("message", "Hello, NCMB!")
+            .save()
+            .then(function(object){
+             // 保存に成功した場合の処理
+
+            })
+            .catch(function(err){
+             // 保存に失敗した場合の処理
+
+         });
+    </script>
+</body>
+</html>
